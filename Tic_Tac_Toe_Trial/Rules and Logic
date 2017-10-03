@@ -1,0 +1,103 @@
+Rules for Tic Tac Toe:
+
+3x3 Grid
+
+2 Players and turn based
+
+Make 3 in a row to win
+
+X and O can be placed anywhere 
+
+
+_____________________________
+Logic for Tic Tac Toe (simple version):
+
+void setup() {  
+  size(500,500);
+  background(150);
+  
+  
+  //create small rectangles
+  fill(200,200,255);
+  rect(100,100,300,300);
+  rect(100,100,100,100);
+  rect(100,200,100,100);
+  rect(100,300,100,100);
+  rect(200,100,100,100);
+  rect(200,200,100,100);
+  rect(200,300,100,100);
+  rect(300,100,100,100);
+  rect(300,200,100,100);
+  rect(300,300,100,100);
+}
+
+void draw () {
+  if key pressed and is within one of the boxes that already doesn't have a shape, create X in the middle
+  
+  if mouse clicked and is within one of the boxes that already doesn't have a shape, create O in the middle
+  
+  else print "Make a move!"
+
+}
+
+void decision(){
+  if 3 in a row detected, print "Win!"
+ 
+  if all squares full but no 3 in a row, print "Tie!"
+  
+  else return
+  
+}
+
+
+_____________________________
+Rules for 3+4:
+
+9x9 grid (henceforth called the Ocean for ease) with 9 ‘smaller’ 3x3 grids (henceforth called Sea for ease)
+
+2 Players and turn based
+
+3 in a row ‘conquers’ a Sea (if all three are in the same Sea). 4 in a row allows cross-Sea conquering 
+(if the 4 in a row go beyond 2 Seas, the Seas with the first and last dot will be conquered)
+
+7 in a row is insta-win (conquers Ocean immediately). Seas can be re-conquered. 3 in a row of conquered Seas wins.
+
+X and O can be placed anywhere
+
+
+
+______________________________
+Logic for 3+4:
+void setup(){
+  size(1600, 1600);
+  background(150);
+}
+
+void draw(){
+  if key pressed and is within one of the boxes that already doesn't have a shape, create X in the middle
+  
+  if mouse clicked and is within one of the boxes that already doesn't have a shape, create O in the middle
+  
+  else print "Make a move!"
+
+}
+
+
+void decision(){
+  if 3 in a row detected by X, && in the same Sea, && not already red or blue, change colour of that Sea to red
+  
+  if 3 in a row detected by O, && in the same Sea, && not already red or blue, change colour of that Sea to blue
+  
+  if 4 in a row detected by X, change colour of that Seas with first and last X to red
+  
+  if 4 in a row detected by O, change colour of that Seas with first and last X to blue
+  
+  if 7 in a row detected by X or O, print "Win!"
+  
+  if 3 Seas in a row of reds or blues detected, print "Win!"
+ 
+  if all squares full but no 3 seas/7 in a row, print "Tie!"
+  
+  else return
+  
+}
