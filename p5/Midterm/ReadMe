@@ -1,0 +1,17 @@
+OpenProcessing Sketch link: https://www.openprocessing.org/sketch/460319
+
+Components:
+- Have 2 modes (normal, and mouse clicked)
+- Normal mode: nice and happy environment, but sad blob who is yellowish red
+- Clicked: Dark and scary environment, but happy blob who is a baby blue :)
+- Have a blob (animate) that follows mouseX
+
+
+References:
+- blob: https://www.openprocessing.org/sketch/282638
+- triangle generation: https://github.com/qiuey00/Qiu-CreativeCoding-F17/blob/master/Geometry%20Design/sketch.js
+
+PseudoCode:
+- (Environment already almost set up in the openprocessing link)
+- Blob: Have multiple ellipses from the same centre point, and opacity 0.8, and then have their y axis be the ground, and the x axis be mouseX
+- Contain all code in 2 sections, day and night mode (to change environment, and emotions of blob)
