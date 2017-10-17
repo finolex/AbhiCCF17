@@ -15,3 +15,11 @@ PseudoCode:
 - (Environment already almost set up in the openprocessing link)
 - Blob: Have multiple ellipses from the same centre point, and opacity 0.8, and then have their y axis be the ground, and the x axis be mouseX
 - Contain all code in 2 sections, day and night mode (to change environment, and emotions of blob)
+
+
+Update 16th October:
+-Made both modes
+-Finished sun and moon
+
+Left to do:
+-Make blob (and then we are done!!!)
