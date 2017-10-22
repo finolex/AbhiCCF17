@@ -26,3 +26,21 @@ Update 16th October:
 
 Left to do:
 -Make blob (and then we are done!!!)
+
+
+Update October 22nd:
+- Made blob
+- Added cloud
+- Added music
+- Added stars
+- Made all of the proportions in terms of width and height rather than absolute values so that program will run on any screen size
+
+Challenges:
+Making blob animated/rotate
+Used timer, but still having trouble to integrate/control it to the way I want it to
+Asked about the gradient mapping for background, but unclear. Tried it, but failed miserably.
+
+Future:
+Address all challenges
+Make blob more organic
+
