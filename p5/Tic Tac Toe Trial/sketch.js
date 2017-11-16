@@ -8,7 +8,7 @@ var grid = [];
 function setup(){
   // first real attempt of understanding arrays and implementing own grid
   createCanvas(500,500);
-  background(150);
+  background(255,228,196);
   for (var i = 0; i < 3; i++){
     for (var j = 0; j < 3; j++){
     grid[i] = [];
