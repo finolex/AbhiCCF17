@@ -21,7 +21,6 @@ function draw(){
 	}
 }
 
-
 function Box(){
 	var c;
 
@@ -31,20 +30,22 @@ function Box(){
 	}
 
 	this.colour = function(){
-		if(count = 0){
+		if(count == 0){
 			c = fill(255, 0, 0);
 		}
-		if(count = 1){
+		if(count == 1){
 			c = fill(0, 0, 255); 
 		}
 	}
 };
 
 function mouseClicked(){
-	if(count = 0){
+	if(count == 0){
 		count++;
+		console.log(count);
 	}
-	if (count = 1) {
+	else if (count == 1) {
 		count = 0;
+		console.log(count);
 	}
 }
