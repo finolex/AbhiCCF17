@@ -26,6 +26,7 @@ function Box(){
 
 	this.draw = function(x, y){
 		c;
+		rectMode(CENTER);
 		rect(x, y, 100,100);
 	}
 
