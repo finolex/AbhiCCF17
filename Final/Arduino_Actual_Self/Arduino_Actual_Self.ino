@@ -30,10 +30,10 @@ void loop() {
   //Filter Red
   digitalWrite(5, LOW);
   digitalWrite(5, LOW);
-  filterColour(25,72,255);
+  filterColour(25, 72, 255);
 }
 
-void filterColour(int x ,int y,int z){
+void filterColour(int x , int y, int z) {
   //reads the values detected by the colour sensor
   frequency = pulseIn(8, LOW);
   //x, y, z will be updated according to the calibration of the colors detected by the colour sensor
