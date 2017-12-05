@@ -21,6 +21,7 @@ void draw()
   if ( myPort.available() > 0) 
   {  // If data is available,
   val = myPort.readStringUntil('\n');         // read it and store it in val
+  print(val);
   } 
 println(val); //print it out in the console
 }
