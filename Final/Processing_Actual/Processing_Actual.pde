@@ -16,6 +16,8 @@ Circle [] circles = new Circle[numcircles];
 int timeSnap, timeDiff;
 boolean flag;
 
+
+
 void setup() {
   size(1000, 800);
   frameRate(30);
@@ -33,12 +35,15 @@ void setup() {
   for (int i = 0; i < numcircles; i++) {
     circles[i] = new Circle();
   }
+  
   /* Sparkfun Arduino/Processing Serial communication tutorial */
   String portName = Serial.list()[0]; //change the 0 to a 1 or 2 etc. to match your port
   myPort = new Serial(this, portName, 9600);
 
   flag = true;
 }
+
+
 
 void draw() {
   for (int i = 0; i < circles.length; i++) {
@@ -89,7 +94,7 @@ class Circle {
 
       if (colour == 1 && flag == true) {
         snare.play();
-        size = 100;
+        size = 250;
         r = 255;
         g = 0;
         b = 0;
@@ -100,7 +105,7 @@ class Circle {
 
       if (colour == 2 && flag == true) {
         highhat.play();
-        size = 150;
+        size = 400;
         r = 0;
         g = 255;
         b = 0;
@@ -111,7 +116,7 @@ class Circle {
 
       if (colour == 3 && flag == true) {
         bass.play();
-        size = 200;
+        size = 500;
         r = 0;
         g = 0;
         b = 255;
