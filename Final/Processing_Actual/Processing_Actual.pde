@@ -1,13 +1,13 @@
-// Sound stuff //<>//
+// Sound stuff //<>// //<>//
 import processing.sound.*;
 SoundFile snare;
 SoundFile highhat;
 SoundFile bass;
 
 /* Sparkfun Arduino/Processing Serial communication tutorial */
-import processing.serial.*;
-Serial myPort;  // Create object from Serial class
-String val;     // Data received from the serial port
+//import processing.serial.*;
+//Serial myPort;  // Create object from Serial class
+//String val;     // Data received from the serial port
 
 
 // Create circles class and other Processing specific variables
@@ -15,7 +15,8 @@ int numcircles = 10;
 Circle [] circles = new Circle[numcircles];
 int timeSnap, timeDiff;
 boolean flag;
-
+//default colour value
+int colour;
 
 
 void setup() {
@@ -37,21 +38,24 @@ void setup() {
   }
 
   /* Sparkfun Arduino/Processing Serial communication tutorial */
-  String portName = Serial.list()[0]; //change the 0 to a 1 or 2 etc. to match your port
-  myPort = new Serial(this, portName, 9600);
+  //String portName = Serial.list()[0]; //change the 0 to a 1 or 2 etc. to match your port
+  //myPort = new Serial(this, portName, 9600);
 
   flag = true;
+  colour = 0;
 }
 
 
 
 void draw() {
   for (int i = 0; i < circles.length; i++) {
-    circles[i].readSensor();
+    //circles[i].readSensor();
     circles[i].display();
     circles[i].fade();
   }
   timeDiff = second() - timeSnap;
+  fill(255);
+  text("D for bass, W for snare, A for high hat", 100, 750);
 }
 
 
@@ -59,10 +63,8 @@ class Circle {
   float xPos, yPos;
   float alpha = 0;
   //access fadeSpeed here
-  float fadeSpeed = 1;
+  float fadeSpeed = 10;
   int r, g, b, size;
-  //default colour set to 0 (black screen with bass thumping
-  int colour = 0;
 
   Circle() {
   }
@@ -71,24 +73,24 @@ class Circle {
     alpha += fadeSpeed;
   }
 
-  void readSensor() {
-    if ( myPort.available() > 0) {
-      int val = myPort.read();  
-      println(val);
+  //void readSensor() {
+  //  if ( myPort.available() > 0) {
+  //    int val = myPort.read();  
+  //    println(val);
 
-      if (val > 150 && val < 210) {
-        colour = 1;
-      } else if (val > 220 && val < 290) {
-        colour = 2;
-      } else if (val > 0 && val < 100) {
-        colour = 3;
-      } else {
-        colour = 0;
-      }
-    } else {
-      colour = 0;
-    }
-  }
+  //    if (val >= 90 && val < 210) {
+  //      colour = 1;
+  //    } else if (val >= 210 && val < 290) {
+  //      colour = 2;
+  //    } else if (val >= 0 && val < 90) {
+  //      colour = 3;
+  //    } else {
+  //      colour = 0;
+  //    }
+  //  } else {
+  //    colour = 0;
+  //  }
+  //}
 
 
   void display() {
@@ -141,10 +143,6 @@ class Circle {
         b = 0;
         xPos = 500;
         yPos = 400;
-        if (flag == true) {
-          bass.play();
-          flag = false;
-        }
       }
 
       fill(r, g, b, alpha); 
@@ -159,3 +157,19 @@ class Circle {
     }
   }
 };
+
+void keyPressed() {
+
+  if (key == 'a' || key == 'A') {
+    colour = 1;
+  } 
+  else if (key == 'w' || key == 'W') {
+    colour = 2;
+    print('w');
+  }
+  else if (key == 'd' || key == 'D') {
+    colour = 3;
+  } else {
+    colour = 0;
+  }
+}
